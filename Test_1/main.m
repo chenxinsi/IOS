@@ -12,6 +12,30 @@ const int WIDTH = 10;
 const int HEIGHT = 5;
 #define NEWLINE 'X';
 
+
+
+@interface SampleClass : NSObject
+- (int)max:(int)num1 andNum2:(int) num2;
+@end
+@implementation SampleClass
+
+- (int)max:(int)num1 andNum2:(int)num2{
+    int result;
+
+    if(num1 > num2){
+
+        result = num1;
+    }else{
+        result = num2;
+    }
+
+    return result;
+
+}
+
+@end
+
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
@@ -20,9 +44,11 @@ int main(int argc, const char * argv[]) {
         int b = 0;
         a = 5;
         b = 7;
-        int c = WIDTH * HEIGHT;
-        char newline = NEWLINE;
-        NSLog(@"变量c: %d %c",++c,newline);
+        int ret;
+
+        SampleClass *sampleClass = [[SampleClass alloc] init];
+        ret = [sampleClass max:a andNum2:b];
+        NSLog(@"Max value is : %d", ret);
     }
     return 0;
 }
