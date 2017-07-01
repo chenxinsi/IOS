@@ -16,7 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    //#if 0 .... #endif 预处理器，屏蔽某段代码；0 - 1 可以恢复
+#if 1
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    [self.view addSubview:label];
+    label.text = @"Hello world!";
+#endif
 }
 
 - (void)didReceiveMemoryWarning {
